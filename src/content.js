@@ -92,12 +92,12 @@ function handleCommitsTitle() {
         var $itemLink = $item.find('a');
         var itemLinkHtml = $itemLink.html();
 
-        if (!itemLinkHtml.match(/([A-Z]+-[0-9]+)/g)) {
+        if (!itemLinkHtml.match(/([A-Z]+-[0-9]+) #resolve/g)) {
             return;
         }
 
         var aHref = $itemLink[0].href;
-        var splittedContent = itemLinkHtml.split(/([A-Z]+-[0-9]+)/g);
+        var splittedContent = itemLinkHtml.split(/([A-Z]+-[0-9]+) #resolve/g);
 
         $item.html('');
         for(var i=0; i< splittedContent.length; i+=3) {
@@ -117,7 +117,7 @@ function handlePrPage() {
         return false;
     }
 
-    var match = title.match(/([A-Z]+-[0-9]+)/);
+    var match = title.match(/([A-Z]+-[0-9]+) #resolve/);
 
     if (!match) {
         return;
